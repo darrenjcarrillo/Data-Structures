@@ -69,26 +69,30 @@ class DoublyLinkedList:
     # REMOVE FROM HEAD
 
     def remove_from_head(self):
-        # store the value of the head
-        curretHead = self.head
+        # # store the value of the head
+        # curretHead = self.head
 
-        # Delete the head
-        # if head is NOT empty
-        if self.head.next is not None:
-            # set head.next's prev to self's None
-            self.head.next.prev = None
-            # set head to head.next
-            self.head = curretHead.next
-        # Else if next head empty
-        else:
-            # set head to None
-            self.head = None
-            # set tail to None
-            self.tail = None
-        # decrement the length of the DLL
-        self.length -= 1
-        # return the value
-        return curretHead.value
+        # # Delete the head
+        # # if head is NOT empty
+        # if self.head.next is not None:
+        #     # set head.next's prev to self's None
+        #     self.head.next.prev = None
+        #     # set head to head.next
+        #     self.head = curretHead.next
+        # # Else if next head empty
+        # else:
+        #     # set head to None
+        #     self.head = None
+        #     # set tail to None
+        #     self.tail = None
+        # # decrement the length of the DLL
+        # self.length -= 1
+        # # return the value
+        # return curretHead.value
+
+        value = self.head.value
+        self.delete(self.head)
+        return value
 
     """
     Wraps the given value in a ListNode and inserts it
@@ -185,9 +189,7 @@ class DoublyLinkedList:
     # DELETE
 
     def delete(self, node):
-        # don't need to return value
-
-        # DO need to update head, tail
+        # DO not need to update head, tail/return value
         if self.head is None:
             return None
         elif self.head is self.tail:
@@ -212,7 +214,7 @@ class DoublyLinkedList:
     # GET MAX
 
     def get_max(self):
-        # start at thead
+        # start at the head
         current_val = self.head
         max_val = self.head.value
         # set the
