@@ -72,45 +72,27 @@ class LinkedList:
         return val
 
     def remove_tail(self):
-        # # empty list
-        # if not self.head:
-        #     return None
-
-        # # list with 1 element
-        # if self.head is self.tail:
-        #     ret_value = self.head.get_value()
-        #     self.head = None
-        #     self.tail = None
-        #     return ret_value
-
-        # # list with +2 elements
-        # current_val = self.head
-
-        # while current_val.get_next_node() is not self.tail:
-        #     current_val = current_val.get_next_node()
-
-        # value = self.tail.get_value()
-        # self.tail = current_val
-        # self.tail.set_next_node(None)
-        # return value
-        if self.head is None:
+        # empty list
+        if not self.head:
             return None
 
-        ret_value = self.tail.get_value()
-
-        if self.head == self.tail:
+        # list with 1 element
+        if self.head is self.tail:
+            ret_value = self.head.get_value()
             self.head = None
             self.tail = None
+            return ret_value
 
-        else:
-            cur_node = self.head
-            while cur_node.get_next_node() is not self.tail:
-                cur_node = cur_node.get_next_node()
+        # list with +2 elements
+        current_val = self.head
 
-            cur_node.set_next_node(None)
-            self.tail = cur_node
+        while current_val.get_next_node() is not self.tail:
+            current_val = current_val.get_next_node()
 
-        return ret_value
+        value = self.tail.get_value()
+        self.tail = current_val
+        self.tail.set_next_node(None)
+        return value
 
     def contains(self, value):
         # loop through LL until the next pointer is None
